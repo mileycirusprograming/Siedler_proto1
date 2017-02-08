@@ -18,8 +18,8 @@ public class SettlerCarrier extends Settler {
 
     @Override
     public void update() {
-        if (getMissionCarrier() != null)
-            getMissionCarrier().finish();
+        //if (getMissionCarrier() != null)
+        //    getMissionCarrier().finish();
 
     }
 

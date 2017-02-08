@@ -26,21 +26,20 @@ public abstract class Settler extends GameObject {
         this.busy = busy;
     }
 
-    public void setMission(Mission mission) {
+    public boolean setMission(Mission mission) {
+        if (!isCorrectMission(mission)) {
+            mission.abort();
+            return false;
+        }
+
         if (this.mission != null)
             this.mission.abort();
 
         this.mission = mission;
+        setBusy(true);
+        this.mission.begin();
 
-        if (isCorrectMission(this.mission)) {
-            setBusy(true);
-            this.mission.begin();
-        }
-        else {
-            setBusy(false);
-            this.mission = null;
-            mission.abort();
-        }
+        return true;
     }
 
     public Mission getMission() {

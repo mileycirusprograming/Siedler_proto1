@@ -21,6 +21,7 @@ public class MissionControl {
     }
 
     public void prepareMissions() {
+        missions.clear();
         for (Building building : objectAccessor.getBuildings()) {
             for (ResourceType neededRessource : building.getNeededResources().keySet()) {
                 if (getFreeResource(neededRessource) == null)
