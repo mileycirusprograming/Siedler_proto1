@@ -15,15 +15,23 @@ public abstract class Mission {
     }
 
     public void begin() {
-        state = MissionState.WORK;
+        setState(MissionState.WORK);
     }
 
     public void abort() {
-        state = MissionState.FAIL;
+        setState(MissionState.FAIL);
     }
 
     public void finish() {
-        state = MissionState.COMPLETE;
+        setState(MissionState.COMPLETE);
     }
 
+    public MissionState getState() {
+        return state;
+    }
+
+    private void setState(MissionState state) {
+        this.state = state;
+        building.missionStateChanged(this);
+    }
 }

@@ -32,4 +32,8 @@ public class MissionCarrier extends Mission {
         resource.disclaim();
         super.finish();
     }
+
+    public Resource getResource() {
+        return resource;
+    }
 }
