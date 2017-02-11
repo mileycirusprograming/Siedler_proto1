@@ -1,6 +1,7 @@
 package Logic.GameObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -8,19 +9,21 @@ import java.util.Map;
  */
 public abstract class ReprocessingBuilding extends Building {
 
-    Map<ResourceType, Integer> baseResources;
-
-    public Map<ResourceType, Integer> getBaseResources() {
-        return baseResources;
-    }
+    private List<ResourceType> baseResources;
 
     public Map<ResourceType, Integer> getNeededResources() {
+
+        Map<ResourceType, Integer> neededBaseResources = new HashMap<>();
+        /*@ToDo
+         Calculate neededBaseResources with storedResources and baseResources
+         */
+
         switch (state) {
             case CONSTRUCT:
                 return getConstructionResources();
 
             case PRODUCTION:
-                return baseResources;
+                return neededBaseResources;
 
             case SLEEP:
                 return new HashMap<>();
