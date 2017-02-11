@@ -3,13 +3,14 @@ package Logic;
 import Logic.GameObject.Building;
 import Logic.GameObject.Resource;
 import Logic.GameObject.Settler;
+import View.GameObjectGetter;
 
 import java.util.*;
 
 /**
  * Created by landfried on 03.02.17.
  */
-public class GameObjectContainer {
+public class GameObjectContainer implements GameObjectGetter {
     private List<Nation> nations;
     private List<Settler> settlers;
     private List<Building> buildings;
@@ -116,6 +117,7 @@ public class GameObjectContainer {
         this.nations = nations;
     }
 
+    @Override
     public List<Settler> getSettlers() {
         return settlers;
     }
@@ -124,6 +126,7 @@ public class GameObjectContainer {
         this.settlers = settlers;
     }
 
+    @Override
     public List<Building> getBuildings() {
         return buildings;
     }
@@ -132,6 +135,7 @@ public class GameObjectContainer {
         this.buildings = buildings;
     }
 
+    @Override
     public List<Resource> getResources() {
         return resources;
     }

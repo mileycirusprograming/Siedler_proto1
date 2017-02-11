@@ -48,7 +48,7 @@ public class GameLogic {
         gameObjectContainer.createNation();
     }
 
-
-
-
+    public GameObjectContainer getGameObjectContainer() {
+        return gameObjectContainer;
+    }
 }
